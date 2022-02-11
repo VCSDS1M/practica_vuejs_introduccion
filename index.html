@@ -18,11 +18,20 @@
 
         <div id="app">
             <div class="jumbotron">
-                <h1 class="display-4" id="title">{{ col.collection.title }}</h1>
+                <h1 class="display-4" id="title">{{col.collection.title}}</h1>
             </div>   
             <div class="card-group">
-                <div class="card" style="width: 18rem;" v-for="item in col.collection.items">
-                    
+                <div class="card" v-for="item in col.collection.items">
+                    <div class="card-body" v-for="peli in item.data">
+                        <dl>
+                            <dt class="card-title">
+                                {{peli.prompt}}
+                            </dt>
+                            <dd>
+                                {{peli.value}}
+                            </dd>
+                        </dl>
+                    </div>
                     <a v-bind:href="item.href" class="btn btn-primary">Ver</a>
                 </div>
             </div>
